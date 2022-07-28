@@ -64,11 +64,8 @@ function setChildrenWrapper(node, level) {
   // wrapper.css('grid-template-columns', `repeat(${node.children.length}, 1fr)`);
 
   for (let child of node.children) {
-    let liId = `li-${level}`;
-    let liElem = $(`<li id="${liId}"></li>`);
-
+    let liElem = setChildNode(child, level);
     wrapper.append(liElem);
-    liElem.append(setChildNode(child, level));
 
     let hasChild = hasChildren(child);
     if (hasChild) liElem.append(setChildrenWrapper(child, level));
@@ -78,13 +75,14 @@ function setChildrenWrapper(node, level) {
 }
 
 function setChildNode(node, level) {
-  let parentElem = $(
-    `<h3 class="level-${level} node" contenteditable="true">
-      ${node.name}
-      <br />
-      ${getActionGroupHtml()}
-    </h3>`
-  );
+  let parentElem = $(`<li>
+      <div class="level-${level} node">
+          <h3 contenteditable="true">
+            ${node.name}
+          </h3>
+          ${getActionGroupHtml()}
+      </div>
+    </li>`);
 
   return parentElem;
 }
@@ -99,13 +97,13 @@ function addNode() {
   var liElem = $(this).parent().parent().parent();
 
   var newItem = $(`<li>
-    <div class="level-${nextLevel} node">
-      <h3 class="level-${nextLevel}" contenteditable="true">
-        Enter text  
-      </h3>
-      ${getActionGroupHtml()}
-    </div>
-  </li>`);
+      <div class="level-${nextLevel} node">
+        <h3 contenteditable="true">
+          Enter text  
+        </h3>
+        ${getActionGroupHtml()}
+      </div>
+    </li>`);
 
   var wrapper = liElem.children(`ol.level-${nextLevel}-wrapper`);
   if (wrapper && wrapper.length > 0) {
