@@ -1,4 +1,4 @@
-# js-wzoelr
+# Organization Chart Demo
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/js-wzoelr)
 
