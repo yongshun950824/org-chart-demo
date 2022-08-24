@@ -2,4 +2,4 @@
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/js-wzoelr)
 
-[Demo](https://yongshun950824.github.io/jquery-ui-draggable-demo/)
+[Demo](https://yongshun950824.github.io/org-chart-demo/)
